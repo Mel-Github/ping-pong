@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="Servers">
+		<item value="false" key="inoressl"/>
+		<list key="recent">
+			<item value="10.1.155.106:1666"/>
+		</list>
+	</section>
+</section>

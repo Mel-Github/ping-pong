@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="java.nio.file.Paths"/>
+<fullyQualifiedTypeName name="java.io.File"/>
+<fullyQualifiedTypeName name="org.apache.log4j.Logger"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="org.apache.logging.log4j.Logger"/>
+<fullyQualifiedTypeName name="com.automic.actions.siebel.actions.generic.DeleteBusinessObjectAction"/>
+<fullyQualifiedTypeName name="com.automic.actions.siebel.actions.generic.SiebelAction"/>
+<fullyQualifiedTypeName name="com.automic.actions.runner.SharedToolFileCmd"/>
+<fullyQualifiedTypeName name="com.automic.actions.runner.AbstractSiebelFeature"/>
+<fullyQualifiedTypeName name="java.util.regex.Matcher"/>
+<fullyQualifiedTypeName name="org.apache.logging.log4j.core.helpers.FileUtils"/>
+</qualifiedTypeNameHistroy>
