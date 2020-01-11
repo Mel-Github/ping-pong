@@ -1,0 +1,11 @@
+#!/bin/sh
+
+#redirect stderr
+exec 2>&1
+
+cat ./results/last_build.env
+export JAVA_HOME={{pkgPathFor "core/jdk8"}}
+echo path is {{pkg.svc_data_path}} and path is {{pkg.path}}
+echo java home is  $JAVA_HOME and {{pkgPathFor "core/jdk8"}} 
+
+$JAVA_HOME/bin/java -jar {{pkg.path}}/{{pkg.name}}-{{pkg.version}}.jar
