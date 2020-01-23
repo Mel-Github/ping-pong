@@ -38,6 +38,10 @@ steps:
 - task: CmdLine@2
   inputs:
     script: 'echo $name is $(Build.Repository.Name) and buildid is $(Build.BuildId)'
+- task: Docker@2
+  inputs:
+    containerRegistry: 'Aqua Registry 2'
+    command: 'login'
 - task: aquasecScanner@4
   inputs:
     image: '$(Build.Repository.Name):$(Build.BuildId)'
