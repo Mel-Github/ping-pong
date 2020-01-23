@@ -20,7 +20,7 @@ steps:
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
-- task: DockerBuildPush@2
+- task: Docker@2
   inputs:
     containerRegistry: 'Docker Hub'
     repository: 'melcheng/ping-pong'
@@ -33,13 +33,13 @@ steps:
 #     repository: 'melcheng/ping-pong'
 #     command: 'buildAndPush'
 #     Dockerfile: '**/Dockerfile'
-- task: CmdPrintVariable@2
+- task: CmdLine@2
   inputs:
     script: 'echo $name is $(Build.Repository.Name) and buildid is $(Build.BuildId)'
 - task: CmdLine@2
   inputs:
     script: 'docker images'
-- task: CmdDockerImages@2
+- task: Docker@2
   inputs:
     containerRegistry: 'Aqua Registry 2'
     command: 'login'
