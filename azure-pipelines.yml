@@ -11,6 +11,7 @@ pool:
 
 steps:
 - task: Maven@3
+  displayName: Maven build
   inputs:
     mavenPomFile: 'pom.xml'
     mavenOptions: '-Xmx3072m'
@@ -28,21 +29,26 @@ steps:
 #     Dockerfile: '**/Dockerfile'
 #     tags: '$(Build.Repository.Name):$(Build.BuildId)'
 - task: CmdLine@2
+  displayName: Docker Build
   inputs:
-    script: 'docker build -t ''melcheng/ping-pong:$(Build.BuildId)'' .'
+    script: 'docker build -t ''$($DOCKER_REPO_NAME):$(Build.BuildId)'' .'
 - task: CmdLine@2
+  displayName: Printing Variables
   inputs:
-    script: 'echo $name is $(Build.Repository.Name) and buildid is $(Build.BuildId)'
+    script: 'echo $name is $(Build.Repository.Name) and buildid is $(Build.BuildId) and docker repo is $($DOCKER_REPO_NAME)'
 - task: CmdLine@2
+  displayName: List Docker Images
   inputs:
     script: 'docker images'
 - task: Docker@2
+  displayName: AquaSec Login
   inputs:
     containerRegistry: 'Aqua Registry 2'
     command: 'login'
 - task: aquasecScanner@4
+  displayName: Scann Docker Images
   inputs:
-    image: '$(Build.Repository.Name):$(Build.BuildId)'
+    image: '$($DOCKER_REPO_NAME):$(Build.BuildId)'
     scanType: 'local'
     register: true
     hideBase: false
