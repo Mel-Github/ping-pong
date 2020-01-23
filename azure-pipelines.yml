@@ -35,3 +35,16 @@ steps:
     repository: 'melcheng/ping-pong'
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'
+- task: aquasecScanner@4
+  inputs:
+    image: '(Build.Repository.Name):(Build.BuildId)'
+    scanType: 'local'
+    register: true
+    hideBase: false
+    showNegligible: false
+    windowsScannerVersion: '4.2.0'
+    registry: 'local'
+    connection: 'Aqua CSP'
+    caCertificates: true
+    scanMalware: true
+    showWillNotFix: true
