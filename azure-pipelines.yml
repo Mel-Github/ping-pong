@@ -27,12 +27,9 @@ steps:
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'
     tags: '$(Build.Repository.Name):$(Build.BuildId)'
-# - task: Docker@2
-#   inputs:
-#     containerRegistry: 'Docker Hub'
-#     repository: 'melcheng/ping-pong'
-#     command: 'buildAndPush'
-#     Dockerfile: '**/Dockerfile'
+- task: CmdLine@2
+  inputs:
+    script: 'docker build -t ''$(Build.Repository.Name):$(Build.BuildId)'' .'
 - task: CmdLine@2
   inputs:
     script: 'echo $name is $(Build.Repository.Name) and buildid is $(Build.BuildId)'
