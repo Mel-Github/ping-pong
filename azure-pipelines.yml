@@ -29,7 +29,7 @@ steps:
 #     tags: '$(Build.Repository.Name):$(Build.BuildId)'
 - task: CmdLine@2
   inputs:
-    script: 'docker build -t ''$(Build.Repository.Name):$(Build.BuildId)'' .'
+    script: 'docker build -t ''melcheng/ping-pong:$(Build.BuildId)'' .'
 - task: CmdLine@2
   inputs:
     script: 'echo $name is $(Build.Repository.Name) and buildid is $(Build.BuildId)'
