@@ -31,11 +31,11 @@ steps:
 - task: CmdLine@2
   displayName: Docker Build
   inputs:
-    script: 'docker build -t ''$($DOCKER_REPO_NAME):$(Build.BuildId)'' .'
+    script: 'docker build -t ''$DOCKER_REPO_NAME:$(Build.BuildId)'' .'
 - task: CmdLine@2
   displayName: Printing Variables
   inputs:
-    script: 'echo $name is $(Build.Repository.Name) and buildid is $(Build.BuildId) and docker repo is $($DOCKER_REPO_NAME)'
+    script: 'echo $name is $(Build.Repository.Name) and buildid is $(Build.BuildId) and docker repo is $DOCKER_REPO_NAME'
 - task: CmdLine@2
   displayName: List Docker Images
   inputs:
@@ -48,7 +48,7 @@ steps:
 - task: aquasecScanner@4
   displayName: Scann Docker Images
   inputs:
-    image: '$($DOCKER_REPO_NAME):$(Build.BuildId)'
+    image: '$DOCKER_REPO_NAME:$(Build.BuildId)'
     scanType: 'local'
     register: true
     hideBase: false
