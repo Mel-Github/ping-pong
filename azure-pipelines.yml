@@ -38,6 +38,9 @@ steps:
 - task: CmdLine@2
   inputs:
     script: 'echo $name is $(Build.Repository.Name) and buildid is $(Build.BuildId)'
+- task: CmdLine@2
+  inputs:
+    script: 'docker images'
 - task: Docker@2
   inputs:
     containerRegistry: 'Aqua Registry 2'
