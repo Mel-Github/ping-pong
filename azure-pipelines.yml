@@ -20,28 +20,26 @@ steps:
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
-#- task: Docker@2
-#  inputs:
-#    command: 'build'
-# #    Dockerfile: '**/Dockerfile'
-# - task: Docker@2
-#   inputs:
-#     containerRegistry: 'Docker Hub'
-#     command: 'buildAndPush'
-#     Dockerfile: '**/Dockerfile'
-- task: Docker@2
+- task: DockerBuildPush@2
   inputs:
     containerRegistry: 'Docker Hub'
     repository: 'melcheng/ping-pong'
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'
-- task: CmdLine@2
+    tags: '$(Build.Repository.Name):$(Build.BuildId)'
+# - task: Docker@2
+#   inputs:
+#     containerRegistry: 'Docker Hub'
+#     repository: 'melcheng/ping-pong'
+#     command: 'buildAndPush'
+#     Dockerfile: '**/Dockerfile'
+- task: CmdPrintVariable@2
   inputs:
     script: 'echo $name is $(Build.Repository.Name) and buildid is $(Build.BuildId)'
 - task: CmdLine@2
   inputs:
     script: 'docker images'
-- task: Docker@2
+- task: CmdDockerImages@2
   inputs:
     containerRegistry: 'Aqua Registry 2'
     command: 'login'
