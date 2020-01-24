@@ -10,6 +10,16 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
+- task: AzureKeyVault@1
+  displayName: Retrieve Vault
+  inputs:
+    azureSubscription: 'Azure subscription 1(d363a5d2-2592-41f7-ac7a-0a1b0d740e81)'
+    KeyVaultName: 'sqldbpasswordsit'
+    SecretsFilter: '*'
+- task: CmdLine@2
+  displayName: Echo password
+  inputs:
+    script: 'echo ''password is $(sqldbpassword)'''
 - task: Maven@3
   displayName: Maven build
   inputs:
@@ -67,3 +77,4 @@ steps:
     caCertificates: true
     scanMalware: true
     showWillNotFix: true
+
