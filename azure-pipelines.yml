@@ -11,9 +11,8 @@ pool:
 
 steps:
 - task: AzureKeyVault@1
-  displayName: Retrieve Vault
   inputs:
-    azureSubscription: 'Azure subscription 1(d363a5d2-2592-41f7-ac7a-0a1b0d740e81)'
+    azureSubscription: 'Azure subscription 1(1)(d363a5d2-2592-41f7-ac7a-0a1b0d740e81)'
     KeyVaultName: 'sqldbpasswordsit'
     SecretsFilter: '*'
 - task: CmdLine@2
