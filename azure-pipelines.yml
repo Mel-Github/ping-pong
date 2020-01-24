@@ -35,7 +35,7 @@ steps:
 - task: CmdLine@2
   displayName: Printing Variables
   inputs:
-    script: 'echo $name is $(Build.Repository.Name) and buildid is $(Build.BuildId) and docker repo is $(DOCKER_REPO_NAME) and build directory is $(Build.SourcesDirectory)''
+    script: 'echo $name is $(Build.Repository.Name) and buildid is $(Build.BuildId) and docker repo is $(DOCKER_REPO_NAME) and build directory is $(Build.SourcesDirectory)'
 - task: CmdLine@2
   displayName: List Docker Images
   inputs:
