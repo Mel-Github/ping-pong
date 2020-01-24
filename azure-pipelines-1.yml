@@ -20,7 +20,7 @@ variables:
   vmImageName: 'ubuntu-latest'
 
 stages:
-- stage: Maven Build
+- stage: MBuild
   displayName: Maven build
   jobs:
   - job: Build
