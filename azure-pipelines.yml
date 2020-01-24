@@ -32,6 +32,11 @@ steps:
   displayName: Docker Build
   inputs:
     script: 'docker build -t ''$(DOCKER_REPO_NAME):$(Build.BuildId)'' .'
+
+- task: CmdLine@2
+  displayName: Listing Build Directory
+  inputs:
+    script: 'ls -l $(Build.SourcesDirectory)'
 - task: CmdLine@2
   displayName: Printing Variables
   inputs:
